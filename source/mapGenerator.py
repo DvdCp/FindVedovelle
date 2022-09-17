@@ -20,7 +20,7 @@ class MapGenerator:
     def createMap(location: list, zoom_start=14):
         
         # First create the map
-        map = Map(location=location, zoom_start=zoom_start, tiles="Stamen Terrain")
+        map = Map(location=location, zoom_start=zoom_start, tiles="Stadia Outdoors")
 
         # Loading vedovelle JSON file
         f = open(r"resources\Vedovelle_final.json", "r")

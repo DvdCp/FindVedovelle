@@ -1,4 +1,4 @@
-from folium import Map, Marker
+from folium import Map, Marker, TileLayer
 from folium.plugins import LocateControl
 from vedovelleLoader import VedovelleLoader
 
@@ -20,7 +20,11 @@ class MapGenerator:
     def createMap(location: list, zoom_start=14):
         
         # First create the map
-        map = Map(location=location, zoom_start=zoom_start, tiles="Stadia Outdoors")
+        map = Map(  location=location, 
+                    zoom_start=zoom_start, 
+                    tiles='https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', 
+                    attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+                )
 
         # Loading vedovelle JSON file
         f = open(r"resources\Vedovelle_final.json", "r")
@@ -39,4 +43,4 @@ class MapGenerator:
         LocateControl(auto_start=True, enableHighAccuracy=True).add_to(map)
 
         # Save map in resources folder
-        map.save("map\index.html")
+        map.save("templates\index.html")

@@ -41,7 +41,7 @@ class MapGenerator:
 
 
         # Locate user real-time position
-        LocateControl(auto_start=True, enableHighAccuracy=True).add_to(map)
+        LocateControl(auto_start=True, enableHighAccuracy=True, onLocationError="oh no").add_to(map)
 
         # Save map in resources folder
         map.save("templates\index.html")

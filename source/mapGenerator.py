@@ -1,6 +1,6 @@
 from folium import Map, Marker
 from folium.plugins import LocateControl
-
+import folium
 import json
 
 MILAN_COORDINATE = [48.468491, 9.181851]
@@ -41,7 +41,7 @@ class MapGenerator:
 
 
         # Locate user real-time position
-        LocateControl(auto_start=True, enableHighAccuracy=True, onLocationError="alert(\"fuck\")").add_to(map)
+        LocateControl(auto_start=True, enableHighAccuracy=True).add_to(map)
 
         # Save map in resources folder
         map.save("templates\index.html")

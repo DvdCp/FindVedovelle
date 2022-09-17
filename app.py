@@ -4,4 +4,4 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return make_response(render_template("prova.html").encode())
+    return render_template("prova.html")

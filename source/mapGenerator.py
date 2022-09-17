@@ -1,8 +1,9 @@
-from folium import Map, Marker, TileLayer
+from folium import Map, Marker
 from folium.plugins import LocateControl
-from vedovelleLoader import VedovelleLoader
 
 import json
+
+MILAN_COORDINATE = [48.468491, 9.181851]
 
 class MapGenerator:
 
@@ -44,3 +45,6 @@ class MapGenerator:
 
         # Save map in resources folder
         map.save("templates\index.html")
+
+if __name__ == "__main__":
+    MapGenerator.createMap(MILAN_COORDINATE)

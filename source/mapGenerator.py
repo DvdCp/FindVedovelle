@@ -40,11 +40,3 @@ class MapGenerator:
 
         # Save map in resources folder
         map.save("map\index.html")
-
-
-
-
-
-
-
-

@@ -12416,12 +12416,12 @@
                 {"enableHighAccuracy": true, "onLocationError": askForGPS}
             ).addTo(map_28223415e3cca05de3ce0b6dc866b285);
             
-                locate_control_52631e7305a8ed78b7fafd5a43e30548.start();
+                //locate_control_52631e7305a8ed78b7fafd5a43e30548.start();
             
             function askForGPS(){
                 if(navigator.geolocation)
                 {
-                    navigator.geolocation.getCurrentPosition(null, showPositionError);
+                    navigator.geolocation.getCurrentPosition(onPositionSuccess, onPositionError);
                 }   
                 else
                 {
@@ -12429,8 +12429,12 @@
                 }
             }
 
-            function showPositionError(position) {
+            function onPositionError(position) {
                 alert('Please enable GPS localization on your phone Settings and reload the page');
+            }
+
+            function onPositionSuccess(position) {
+                locate_control_52631e7305a8ed78b7fafd5a43e30548.start();
             }
                 
             

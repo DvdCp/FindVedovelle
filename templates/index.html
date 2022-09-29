@@ -12421,14 +12421,11 @@
             function askForGPS(){
                 if(navigator.geolocation)
                 {
-                    alert("porci dio");
                     navigator.geolocation.getCurrentPosition(showPosition, showPositionError);
-                    alert("porci dio");
                 }   
                 else
                 {
-                    alert(diocane);
-
+                    alert("Enable to get geolocalization for this browser.... Sorry :( ");
                 }
             }
 
@@ -12437,7 +12434,7 @@
             }
 
             function showPositionError(position) {
-                alert('error');
+                alert('Please enable GPS localization and reload the page');
             }
                 
             

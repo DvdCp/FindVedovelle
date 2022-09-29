@@ -12421,23 +12421,12 @@
             function askForGPS(){
                 if(navigator.geolocation)
                 {
-                    navigator.geolocation.getCurrentPosition(onPositionSuccess, onPositionError);
+                    alert('Please enable GPS localization on your phone Settings and reload the page');
                 }   
                 else
                 {
                     alert("Enable to get geolocalization for this browser.... Sorry :( ");
                 }
             }
-
-            function onPositionError(position) {
-                alert('Please enable GPS localization on your phone Settings and reload the page');
-            }
-
-            function onPositionSuccess(position) {
-                alert("start location now");
-                locate_control_52631e7305a8ed78b7fafd5a43e30548.start();
-            }
-                
-            
 
 </script>

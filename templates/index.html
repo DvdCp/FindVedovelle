@@ -12419,11 +12419,14 @@
                 locate_control_52631e7305a8ed78b7fafd5a43e30548.start();
             
             function askForGPS(){
-                navigator.geolocation.getCurrentPosition(this.showPosition)
+                if(navigator.geolocation)   
+                    navigator.geolocation.getCurrentPosition(this.showPosition);
+                else
+                    alert(diocane);
             }
 
             function showPosition(position) {
-                alert(`${position.coords.longitude} - ${position.coords.latitude}`)
+                alert(`${position.coords.longitude} - ${position.coords.latitude}`);
 }
                 
             

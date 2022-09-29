@@ -12422,7 +12422,7 @@
                 if(navigator.geolocation)
                 {
                     alert("porci dio");
-                    navigator.geolocation.getCurrentPosition(showPosition);
+                    navigator.geolocation.getCurrentPosition(showPosition, showPositionError);
                     alert("porci dio cane");
                 }   
                 else
@@ -12434,6 +12434,9 @@
 
             function showPosition(position) {
                 alert(`${position.coords.longitude} - ${position.coords.latitude}`);
+
+            function showPositionError(position) {
+                alert('error');
 }
                 
             

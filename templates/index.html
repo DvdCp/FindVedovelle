@@ -12421,7 +12421,7 @@
             function askForGPS(){
                 if(navigator.geolocation)
                 {
-                    navigator.geolocation.getCurrentPosition(showPosition, showPositionError);
+                    navigator.geolocation.getCurrentPosition(null, showPositionError);
                 }   
                 else
                 {
@@ -12429,12 +12429,8 @@
                 }
             }
 
-            function showPosition(position) {
-                alert(`${position.coords.longitude} - ${position.coords.latitude}`);
-            }
-
             function showPositionError(position) {
-                alert('Please enable GPS localization and reload the page');
+                alert('Please enable GPS localization on your phone Settings and reload the page');
             }
                 
             

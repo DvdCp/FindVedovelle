@@ -12,7 +12,7 @@ class MapGenerator:
         """
 
         button = """<a href="https://www.google.com/maps/search/?api=1&query={0}%2C{1}">
-                        <button>Go !<img src="../resources/map.png" width="250%" height="250%"></button>
+                        <button>Go !</button>
                     </a>""".format(lat, long)
 
         return button

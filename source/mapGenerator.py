@@ -1,9 +1,8 @@
 from folium import Map, Marker
 from folium.plugins import LocateControl
-import folium
 import json
 
-MILAN_COORDINATE = [48.468491, 9.181851]
+MILAN_COORDINATE = [45.465225, 9.186344]
 
 class MapGenerator:
 
@@ -13,7 +12,7 @@ class MapGenerator:
         """
 
         button = """<a href="https://www.google.com/maps/search/?api=1&query={0}%2C{1}">
-                        <button>Go !<img src="resources\map.png"></button>
+                        <button>Go !<img src="../resources/map.png" width="250%" height="250%"></button>
                     </a>""".format(lat, long)
 
         return button
@@ -39,12 +38,11 @@ class MapGenerator:
 
             Marker(vedovella_pos, popup=vedovella_popup).add_to(map)
 
-
         # Locate user real-time position
         LocateControl(auto_start=True, enableHighAccuracy=True).add_to(map)
 
         # Save map in resources folder
-        map.save("templates\index.html")
+        map.save(r"templates\index.html")
 
 if __name__ == "__main__":
     MapGenerator.createMap(MILAN_COORDINATE)

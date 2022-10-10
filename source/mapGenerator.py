@@ -11,7 +11,7 @@ class MapGenerator:
             Create a button for a Vedovella located with lat and long coords
         """
 
-        button = """<a href="https://www.google.com/maps/search/?api=1&query={0}%2C{1}">
+        button = """<a href="https://www.google.com/maps/search/?api=1&query={0}%2C{1}" target="_blank">
                         <button>Go !</button>
                     </a>""".format(lat, long)
 

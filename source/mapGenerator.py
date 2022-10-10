@@ -22,7 +22,8 @@ class MapGenerator:
         # First create the map
         map = Map(  location=location, 
                     zoom_start=zoom_start, 
-                    tiles='https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', 
+                    # tiles='https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png',  
+                    tiles='http://localhost:3065/styles/basic-preview/{z}/{x}/{y}.png',  
                     attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
                 )
 
@@ -42,7 +43,7 @@ class MapGenerator:
         LocateControl(auto_start=True, enableHighAccuracy=True).add_to(map)
 
         # Save map in resources folder
-        map.save(r"templates\index.html")
+        map.save(r"templates\map.html")
 
 if __name__ == "__main__":
     MapGenerator.createMap(MILAN_COORDINATE)

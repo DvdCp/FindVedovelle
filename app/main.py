@@ -24,7 +24,8 @@ if __name__ == "__main__":
         container = docker_client.containers.get("maptiles_server")
 
     except docker.errors.NotFound as ex:
-        args = shlex.split(r"docker run --name maptiles_server --rm -it -v C:/Users/David/Git/BeviVedovelle/static/assets/maptiles:/data -p 3065:80 maptiler/tileserver-gl --mbtiles 2017-07-03_italy_milan.mbtiles")
+        #TODO check here what is the cwd 
+        args = shlex.split(r"docker run --name maptiles_server --rm -it -v ./app/static/assets/maptiles:/data -p 3065:80 maptiler/tileserver-gl --mbtiles 2017-07-03_italy_milan.mbtiles")
         docker_container = subprocess.Popen(args)
 
-    app.run(debug=True)
+    # app.run(debug=True, host='0.0.0.0')

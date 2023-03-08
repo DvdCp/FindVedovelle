@@ -1,6 +1,7 @@
 from folium import Map, Marker
 from folium.plugins import LocateControl
 import json
+import os
 
 MILAN_COORDINATE = [45.465225, 9.186344]
 
@@ -28,7 +29,7 @@ class MapGenerator:
                 )
 
         # Loading vedovelle JSON file
-        f = open(r"resources\Vedovelle_final.json", "r")
+        f = open(r"resources\\Vedovelle_final.json", "r")
         vedovelle_list = json.load(f)
 
         for vedovella in vedovelle_list:
@@ -43,7 +44,11 @@ class MapGenerator:
         LocateControl(auto_start=True, enableHighAccuracy=True).add_to(map)
 
         # Save map in resources folder
-        map.save(r"templates\map.html")
+        abspath = os.path.abspath(__file__)
+        dname = os.path.dirname(abspath)
+        os.chdir(dname)
+        print(dname)
+        map.save(r"..\app\templates\map.html")
 
 if __name__ == "__main__":
     MapGenerator.createMap(MILAN_COORDINATE)

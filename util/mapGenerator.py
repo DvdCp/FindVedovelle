@@ -18,13 +18,13 @@ class MapGenerator:
 
         return button
 
-    def createMap(location: list, zoom_start=14):
-        
+    def createMap(location: list, zoom_start=14, maptilesServerIp='localhost'):
+
         # First create the map
         map = Map(  location=location, 
                     zoom_start=zoom_start, 
                     # tiles='https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png',  
-                    tiles='http://localhost:3065/styles/basic-preview/{z}/{x}/{y}.png',  
+                    tiles='http://'+maptilesServerIp+':3065/styles/basic-preview/{z}/{x}/{y}.png',  
                     attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
                 )
 

@@ -44,11 +44,7 @@ class MapGenerator:
         LocateControl(auto_start=True, enableHighAccuracy=True).add_to(map)
 
         # Save map in resources folder
-        abspath = os.path.abspath(__file__)
-        dname = os.path.dirname(abspath)
-        os.chdir(dname)
-        print(dname)
-        map.save(r"..\app\templates\map.html")
+        map.save(r".\app\templates\map.html")
 
 if __name__ == "__main__":
     MapGenerator.createMap(MILAN_COORDINATE)

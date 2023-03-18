@@ -1,8 +1,9 @@
+import sys
+sys.path.append('.')
+
 from flask import Flask, render_template
 import subprocess, shlex
 import docker
-import os
-import sys
 
 from util.mapGenerator import MapGenerator
 
@@ -33,8 +34,9 @@ if __name__ == "__main__":
         docker_container = subprocess.Popen(args)
 
     # Getting docker container IP address
+    container = docker_client.containers.get(CONTAINER_NAME)
     ipAddress = container.attrs['NetworkSettings']['IPAddress']
     MILAN_COORDINATE = [45.465225, 9.186344]
-    MapGenerator.createMap(location=MILAN_COORDINATE, maptilesServerIp=ipAddress)
+    # MapGenerator.createMap(location=MILAN_COORDINATE, maptilesServerIp='192.168.1.39')
 
     app.run(debug=True, host='0.0.0.0', port=80)

@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  maptiles_server:
+    image: maptiler/tileserver-gl:v4.1.2
+    container_name: maptiles_server
+    ports:
+      - "3065:80"
+    volumes:
+      - .\\app\\static\\assets\\maptiles:/data
+    command: --mbtiles 2017-07-03_italy_milan.mbtiles
+  app:
+    build: .
+    ports:
+      - "8000:2323"
+

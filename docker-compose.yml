@@ -1,25 +1,36 @@
 version: "3.9"
+
+networks:
+  myNet:
+    name: myNet
+
 services:
   maptiles_server:
     image: maptiler/tileserver-gl:v4.1.2
     container_name: maptiles_server
     ports:
-      - "3065:80"
+      - 2324:80
     volumes:
       - .\\app\\static\\assets\\maptiles:/data
     command: --mbtiles 2017-07-03_italy_milan.mbtiles
+    networks:
+      - myNet
+
   app:
     build: .
     ports:
-      - "8000:2323"
-    container_name: flask_app
+      - 2323:2323
+    networks:
+      - myNet
+
   nginx:
     container_name: nginx
-    build: .\ngnix
-    # Bind the port 80 of container to machine port 80
+    image: nginx:latest
     ports:
-      - 80:80
-    # Make app as nginx dependency service
-    depends_on:
-      - app
+      - 8080:8080
+    volumes:
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
+    networks:
+      - myNet
+
 

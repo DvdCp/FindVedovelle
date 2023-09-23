@@ -32,3 +32,4 @@ An instance of this project is deployed on EC2 at this link [http://3.79.188.22:
 - [ ] Fetching user real position
 - [ ] Enter an address to search for
 - [ ] Add a nicer and more readable domain
+- [ ] Fix pin on vedovelle

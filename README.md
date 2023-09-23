@@ -4,7 +4,7 @@ FindVedovelle is a web app which shows you a map of Milan where are indicated al
 
 What is a Vedovella ? This is a Vedovella !
 
-![alt text](https://github.com/DvdCp/BeviVedovelle/blob/master/Vedovella.webp?raw=true)
+![alt text](https://github.com/DvdCp/FindVedovelle/blob/main/Vedovella.webp?raw=true)
 
 Grab your bottle and go search for one of them !
 
